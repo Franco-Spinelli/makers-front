@@ -35,22 +35,24 @@
                 </div>
             </div>
         </div>
-        <div *ngFor="let maker of makers" class="maker-container">
-            <div class="maker-details">
-              <p>ID: {{ maker.id }}</p>
-              <h1>{{ maker.name }}</h1>
-              <hr>
-              <h1>PRODUCTS</h1>
-            </div>
-          
-            <div *ngFor="let product of products" class="product-container">
-              <div *ngIf="product.makerName === maker.name" class="product-details">
-                <p>Name: {{ product.name }}</p>
-                <p>Price: {{ product.price }}$</p>
-                <hr>
-              </div>
-            </div>
-          </div>
+          <div *ngFor="let maker of makers">
+            <div class="col">
+                <div class="col-sm-3">
+                        <div class="card card-block">
+                            <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src={{maker.img}} data-holder-rendered="true" style="height: 100px; width: 100%; display: block;">
+                            <div class="card-block">
+                                <h4 class="card-title">{{maker.name}}</h4>
+                                <div *ngFor="let product of products">
+                                    <div *ngIf="product.makerName === maker.name">
+                                        <p class="card-text">{{product.name}} {{ product.price }}$</p><br>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-primary">Button</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
     </div>
     
 </div>

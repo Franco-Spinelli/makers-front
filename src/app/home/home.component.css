@@ -135,27 +135,16 @@ html, body {
     color: #ffffff;
 }
 
-
-.maker-container {
-    border: 1px solid #eeeeee;
-    margin: 10px;
-    padding: 10px;
+.card-text, .card-title{
+    color: white;
+}
+.card-title{
     text-align: center;
-    background-color: #152733;
-    color: #fff;
+}
+.card{
+ width: 40%;
+}
+  img{
+    width: 10%;
+    height: 10%;
   }
-  
-  .product-container {
-    margin-top: 10px;
-  }
-  
-  .product-details {
-    background-color: #152733;
-    padding: 8px;
-    border: 1px solid #ddd;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #ffffff;
-  }
-  
