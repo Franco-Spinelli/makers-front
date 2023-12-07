@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Maker, Product } from '../model';
 
 @Component({
   selector: 'app-home',
@@ -7,17 +8,25 @@ import { ApiService } from '../api.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit{
-  datos: any[] = [];
+  makers: Maker[] = [];
+  products: Product[] = [];
   constructor(private apiService: ApiService) {}
   ngOnInit() {
-    // Llama al método getDatos() y suscríbete al observable
-    this.apiService.getDatos().subscribe(
-      (response) => {
-        // Asigna los datos a la propiedad datos
-        this.datos = response;
-        console.log(this.datos)
-      }
-    );
+   this.getData();
   }
 
+  getData(){
+    this.apiService.getData().subscribe(
+      (response) => {
+        this.makers = response;
+        console.log(this.makers)
+      }
+    )
+    this.apiService.getProduct().subscribe(
+      (data) => {
+        this.products = data;
+        console.log(this.products);
+      }
+    )
+  }
 }

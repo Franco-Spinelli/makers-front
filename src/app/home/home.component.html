@@ -17,6 +17,8 @@
                     </form>
                 </div>
             </div>
+         
+
             <div class="form-content">
                 <div class="form-items">
                     <h3>Search maker</h3>
@@ -33,7 +35,23 @@
                 </div>
             </div>
         </div>
-        
+        <div *ngFor="let maker of makers" class="maker-container">
+            <div class="maker-details">
+              <p>ID: {{ maker.id }}</p>
+              <h1>{{ maker.name }}</h1>
+              <hr>
+              <h1>PRODUCTS</h1>
+            </div>
+          
+            <div *ngFor="let product of products" class="product-container">
+              <div *ngIf="product.makerName === maker.name" class="product-details">
+                <p>Name: {{ product.name }}</p>
+                <p>Price: {{ product.price }}$</p>
+                <hr>
+              </div>
+            </div>
+          </div>
     </div>
+    
 </div>
 
