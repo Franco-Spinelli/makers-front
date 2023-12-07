@@ -1,59 +1,24 @@
-<div class="form-body">
-    <div class="row">
-        <div class="form-holder">
-            <div class="form-content">
-                <div class="form-items">
-                    <h3>Register Maker</h3>
-                    <p>Fill in the data below.</p>
-                    <form class="requires-validation" novalidate>
-                        <div class="col-md-12">
-                            <input class="form-control" type="text" name="name" placeholder="Maker name" required>
-                            <div class="valid-feedback">name field is valid!</div>
-                            <div class="invalid-feedback">name field cannot be blank!</div>
-                        </div>                            
-                        <div class="form-button mt-3">
-                            <button id="submit" type="submit" class="btn btn-primary">Register</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-         
 
-            <div class="form-content">
-                <div class="form-items">
-                    <h3>Search maker</h3>
-                    <form class="requires-validation" novalidate>
-                        <div class="col-md-12">
-                           <input class="form-control" type="text" name="name" placeholder="Maker name" required>
-                           <div class="valid-feedback">name field is valid!</div>
-                           <div class="invalid-feedback">name field cannot be blank!</div>
-                        </div>                            
-                        <div class="form-button mt-3">
-                            <button id="submit" type="submit" class="btn btn-primary">Search</button>
+    <span *ngFor="let maker of makers">
+                <div class="container">
+                    <section class="mx-auto my-5" style="max-width: 23rem;">
+                    <div class="card testimonial-card mt-2 mb-3">
+                        <div class="card-up aqua-gradient"></div>
+                        <div class="avatar mx-auto white">
+                        <img src={{maker.img}} class="rounded-circle img-fluid"
+                            alt="woman avatar">
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-          <div *ngFor="let maker of makers">
-            <div class="col">
-                <div class="col-sm-3">
-                        <div class="card card-block">
-                            <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180" src={{maker.img}} data-holder-rendered="true" style="height: 100px; width: 100%; display: block;">
-                            <div class="card-block">
-                                <h4 class="card-title">{{maker.name}}</h4>
-                                <div *ngFor="let product of products">
-                                    <div *ngIf="product.makerName === maker.name">
-                                        <p class="card-text">{{product.name}} {{ product.price }}$</p><br>
-                                    </div>
-                                </div>
-                                <a href="#" class="btn btn-primary">Button</a>
-                            </div>
+                        <div class="card-body text-center">
+                             <h4 class="card-title font-weight-bold">{{maker.name}}</h4>
+                            <hr>
+                             <span  *ngFor="let product of products">
+                                    <span *ngIf="product.makerName === maker.name">
+                                          <p><i class="fas fa-quote-left"></i> {{product.name}} {{ product.price }}$</p>
+                                     </span>
+                            </span>
+                            <input type="text" name="" id="" placeholder="New product">
                         </div>
                     </div>
+                    </section>
                 </div>
-        </div>
-    </div>
-    
-</div>
-
+            </span>
