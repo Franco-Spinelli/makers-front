@@ -25,3 +25,19 @@ html, body {
     border: 5px solid #fff;
     border-radius: 50%;
   }
+
+  input.minimalist-input {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  /* Estilos adicionales cuando el input está enfocado */
+  input.minimalist-input:focus {
+    border-color: #007bff; /* Puedes ajustar este color según tus preferencias */
+  }
+
+  

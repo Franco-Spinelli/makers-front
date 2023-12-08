@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Maker, Product } from '../model';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,14 @@ import { Maker, Product } from '../model';
 export class HomeComponent implements OnInit{
   makers: Maker[] = [];
   products: Product[] = [];
-  constructor(private apiService: ApiService) {}
+  updateProduct: FormGroup;
+  constructor(private fb: FormBuilder, private apiService: ApiService) {
+    this.updateProduct = this.fb.group({
+     name: new FormControl(''),
+     price: new FormControl(''),
+    makerName: new FormControl('')
+    });
+  }
   ngOnInit() {
    this.getData();
   }
@@ -28,5 +36,19 @@ export class HomeComponent implements OnInit{
         console.log(this.products);
       }
     )
+  }
+  sendProduct(name:string) {
+    const updateData = this.updateProduct.value;
+    this.updateProduct.get('makerName')?.setValue(name);
+    console.log(this.updateProduct.get('maker.id')?.value);
+    
+    this.apiService.updateProduct(this.updateProduct.value).subscribe(
+      (response) => {
+        console.log('Successful update:', response);
+      },
+      (error) => {
+        console.error('Error updating:', error);
+      }
+    );
   }
 }

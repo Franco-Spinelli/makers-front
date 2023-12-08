@@ -13,10 +13,16 @@
                             <hr>
                              <span  *ngFor="let product of products">
                                     <span *ngIf="product.makerName === maker.name">
-                                          <p><i class="fas fa-quote-left"></i> {{product.name}} {{ product.price }}$</p>
+                                          <p><i class="fas fa-quote-left"></i> {{product.name}} <span style="font-weight: bold;">{{ product.price }}$</span></p>
                                      </span>
                             </span>
-                            <input type="text" name="" id="" placeholder="New product">
+                            <hr>
+                            <h3>Add Product</h3>
+                            <form [formGroup]="updateProduct" (ngSubmit)="sendProduct(maker.name)">
+                                <input class="minimalist-input" type="text" name="" id="" placeholder="Product Name" formControlName="name">
+                                <input class="minimalist-input" type="text" name="" id="" placeholder="Product Price" formControlName="price"><br><br>
+                                <button class="btn btn-warning" type="submit" >Post</button>
+                            </form>
                         </div>
                     </div>
                     </section>
